@@ -266,3 +266,25 @@ import pandas as pd
 
 def pivotTable(weather: pd.DataFrame) -> pd.DataFrame:
     return weather.pivot(index="month", columns="city", values='temperature')
+
+'''
+2890. Reshape Data: Melt
+DataFrame report
++-------------+--------+
+| Column Name | Type   |
++-------------+--------+
+| product     | object |
+| quarter_1   | int    |
+| quarter_2   | int    |
+| quarter_3   | int    |
+| quarter_4   | int    |
++-------------+--------+
+Write a solution to reshape the data so that each row represents sales data for a product in a specific quarter.
+'''
+
+import pandas as pd
+
+def meltTable(report: pd.DataFrame) -> pd.DataFrame:
+    return pd.melt(report, id_vars = 'product', var_name = 'quarter', value_name ='sales', value_vars=['quarter_1' , 'quarter_2' ,'quarter_3' ,'quarter_4'], )
+
+'''
