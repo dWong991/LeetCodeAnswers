@@ -86,7 +86,13 @@ A company plans to provide its employees with a bonus.
 
 Write a solution to create a new column name bonus that contains the doubled values of the salary column.
 '''
+    
+import pandas as pd
 
+def createBonusColumn(employees: pd.DataFrame) -> pd.DataFrame:
+    employees['bonus'] = employees['salary'] * 2
+    return employees
+    
 '''
 2882. Drop Duplicate Rows
 DataFrame customers
@@ -101,18 +107,13 @@ There are some duplicate rows in the DataFrame based on the email column.
 
 Write a solution to remove these duplicate rows and keep only the first occurrence.
 '''
+
 import pandas as pd
 
 def dropDuplicateEmails(customers: pd.DataFrame) -> pd.DataFrame:
     customers = customers.drop_duplicates(subset= 'email', keep='first')
     return customers
     
-import pandas as pd
-
-def createBonusColumn(employees: pd.DataFrame) -> pd.DataFrame:
-    employees['bonus'] = employees['salary'] * 2
-    return employees
-
 '''
 2883. Drop Missing Data
 +-------------+--------+
