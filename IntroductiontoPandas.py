@@ -203,3 +203,23 @@ import pandas as pd
 def changeDatatype(students: pd.DataFrame) -> pd.DataFrame:
     students["grade"] = students["grade"].astype(int)
     return students
+    
+'''
+2887. Fill Missing Data
+DataFrame products
++-------------+--------+
+| Column Name | Type   |
++-------------+--------+
+| name        | object |
+| quantity    | int    |
+| price       | int    |
++-------------+--------+
+Write a solution to fill in the missing value as 0 in the quantity column.
+'''
+import pandas as pd
+
+def fillMissingValues(products: pd.DataFrame) -> pd.DataFrame:
+    products['quantity'] = products['quantity'].fillna(0).astype(int)
+    return products
+
+'''
