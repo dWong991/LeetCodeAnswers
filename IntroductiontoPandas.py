@@ -288,3 +288,22 @@ def meltTable(report: pd.DataFrame) -> pd.DataFrame:
     return pd.melt(report, id_vars = 'product', var_name = 'quarter', value_name ='sales', value_vars=['quarter_1' , 'quarter_2' ,'quarter_3' ,'quarter_4'], )
 
 '''
+2891. Method Chaining
+DataFrame animals
++-------------+--------+
+| Column Name | Type   |
++-------------+--------+
+| name        | object |
+| species     | object |
+| age         | int    |
+| weight      | int    |
++-------------+--------+
+Write a solution to list the names of animals that weigh strictly more than 100 kilograms.
+
+Return the animals sorted by weight in descending order.
+'''
+import pandas as pd
+
+def findHeavyAnimals(animals: pd.DataFrame) -> pd.DataFrame:
+    animals = animals.sort_values(by='weight', ascending=False)
+    return animals.loc[animals['weight'] > 100,['name']]
